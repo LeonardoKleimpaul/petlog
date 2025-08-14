@@ -24,6 +24,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
 	&& rm -rf /var/lib/apt/lists/*
 
+# Instala Node.js mais recente (Current)
+RUN apt-get update && apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_current.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install --global npm && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN set -eux; \
 	install-php-extensions \
 		@composer \
