@@ -61,6 +61,18 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 	setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var
 
 	echo 'PHP app ready!'
+
+	# Build inicial do Tailwind
+	echo 'Gerando Tailwind CSS inicial...'
+	php bin/console tailwind:build
+
+	# Limpa cache do Symfony
+	echo 'Limpando cache do Symfony...'
+	php bin/console cache:clear
+
+	# Inicia Tailwind em background (watch)
+	echo 'Iniciando Tailwind watch em background...'
+	php bin/console tailwind:build --watch &
 fi
 
 exec docker-php-entrypoint "$@"
