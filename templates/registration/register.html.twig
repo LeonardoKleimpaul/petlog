@@ -28,6 +28,13 @@
 
             {{ form_start(registrationForm, { attr: { class: 'mt-8 space-y-6' } }) }}
 
+                {{ form_row(registrationForm.name, {
+                    attr: {
+                        placeholder: 'Nome Completo'
+                    },
+                    label: 'Nome'
+                }) }}
+
                 {{ form_row(registrationForm.email, {
                     attr: {
                         class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
