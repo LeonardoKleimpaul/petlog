@@ -37,9 +37,7 @@ trait TimestampableTrait
     #[ORM\PrePersist]
     public function onPrePersist(): void
     {
-        $now = new \DateTimeImmutable();
-        $this->createdAt = $now;
-        $this->updatedAt = $now;
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     #[ORM\PreUpdate]
