@@ -29,4 +29,11 @@ return [
         'version' => '3.1.2',
         'type' => 'css',
     ],
+    'imask' => [
+        'version' => '7.6.1',
+    ],
+    'phone-mask' => [
+        'path' => './assets/js/phone-mask.js',
+        'entrypoint'=> true,
+    ],
 ];
