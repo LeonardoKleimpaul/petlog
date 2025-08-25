@@ -10,6 +10,13 @@
 				{% include 'components/breadcrumb.html.twig' with { items: items } %}
 			{% endif %}
 
+			{# read and display all flash messages #}
+			{% for label, messages in app.flashes %}
+				{% for message in messages %}
+					{% include 'components/alert.html.twig' with { type: label, message: message } %}
+				{% endfor %}
+			{% endfor %}
+
 			<div class="mt-4">
 				{% block content %}{% endblock %}
 			</div>

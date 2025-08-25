@@ -9,8 +9,7 @@
 } %}
 
 {% set color = colors[type]|default(colors['info']) %}
-
-<div class="flex items-center p-4 mb-4 mt-2 text-sm {{ color[0] }} rounded-lg {{ color[1] }} {{ color[2] }} {{ color[3] }}" role="alert">
+<div class="alert-msg font-bold border-2 border-gray-200 rounded-lg dark:border-gray-700 bg-gray-50 dark:bg-gray-800 flex items-center p-4 mb-4 mt-2 text-sm {{ color[0] }} rounded-lg {{ color[1] }} {{ color[2] }} {{ color[3] }}" role="alert" data-type="{{ type }}">
     {% if icon is defined %}
         {{ icon|raw }}
     {% else %}
@@ -22,3 +21,12 @@
     <span class="sr-only">{{ type|capitalize }}</span>
     <div>{{ message }}</div>
 </div>
+
+<script>
+    setTimeout(() => {
+        const alert = document.querySelector('.alert-msg');
+        if (alert && alert.dataset.type == 'success') {
+            alert.remove();
+        }
+    }, 5000);
+</script>
