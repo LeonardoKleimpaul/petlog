@@ -34,6 +34,9 @@ return [
     ],
     'phone-mask' => [
         'path' => './assets/js/phone-mask.js',
-        'entrypoint'=> true,
+        'entrypoint' => true,
+    ],
+    'sweetalert2' => [
+        'version' => '11.22.4',
     ],
 ];
